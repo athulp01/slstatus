@@ -27,7 +27,8 @@ COM =\
 	components/uptime\
 	components/user\
 	components/volume\
-	components/wifi
+	components/wifi\
+	components/brightness_file\
 
 all: slstatus
 
