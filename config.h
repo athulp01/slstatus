@@ -64,25 +64,33 @@ static const char unknown_str[] = "n/a";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  */
 
-#define grey "#4b5263"
+#define BGCOLOR "#3f4452"
+#define BG "^b"BGCOLOR"^" 
+#define FG "^c"BGCOLOR"^" 
+#define D "^d^"
+
+#define opening  " "FG"^d^"BG""
+#define closing  "^d^"FG"^d^ "
+
 static const struct arg args[] = {
 	/* function format          argument */
-	{separator, "%s", " ^c"grey"^^d^^b"grey"^"},
-	{ datetime, " %s ",           "%F %T" },
-	{get_brightness, "%s", " "},
-	{separator, "%s", "^d^^c"grey"^^d^ "},
-	{separator, "%s", " ^c"grey"^^d^^b"grey"^"},
-	{ cpu_perc,  " %s%% ", ""},
-	{ram_used, " %s ", ""},
-	{separator, "%s", "^d^^c"grey"^^d^ "},
-	{separator, "%s", " ^c"grey"^^d^^b"grey"^"},
-	{vol_perc, " %s", "/dev/mixer"},
-	{separator, "%s", "^d^^c"grey"^^d^ "},
-	{separator, "%s", " ^c"grey"^^d^^b"grey"^"},
-	{wifi_essid, "  %s ", "wlp3s0"},
+	{separator, "%s", opening},
+	{ datetime, "^c#d19a66^ ^d^"BG"%s ","%d/%m/%y %H:%M" },
+	{separator, "%s", closing},
+	{separator, "%s", opening},
+	{brightness, "^c#56b6c2^ ^d^"BG"%s%%", " "},
+	{run_command, " | ^c#98c379^ ^d^"BG"%s%%", "pamixer --get-volume"},
+//{vol_perc, " %s", "/dev/mixer"},
+	{separator, "%s", closing},
+	{separator, "%s", opening},
+	{ cpu_perc,  "^c#61afef^ ^d^"BG"%s%% ", ""},
+	{ram_used, "| ^c#98c379^ ^d^"BG"%s ", ""},
+	{separator, "%s", closing},
+	{separator, "%s", opening},
+	{wifi_essid, "^c#e5c07b^  ^d^"BG"%s ", "wlp3s0"},
 	{ipv4, "%s", "wlp3s0"},
-	{netspeed_rx, " |  %s", "wlp3s0"},
-	{netspeed_tx, "  %s| ", "wlp3s0"},
-	{wifi_perc, " %s%%", "wlp3s0"},
-	{separator, "%s", "^d^^c"grey"^^d^ "},
+	{netspeed_rx, " | ^c#98c379^ ^d^"BG" %s", "wlp3s0"},
+	{netspeed_tx, "^c#e06c75^  ^d^"BG"%s| ", "wlp3s0"},
+	{wifi_perc, " %s%%", "wlp3s0"},
+	{separator, "%s", closing},
 };
