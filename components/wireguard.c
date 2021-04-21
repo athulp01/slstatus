@@ -17,6 +17,7 @@ const char* wireguard(){
   for (ifa = ifaddr; ifa != NULL; ifa = ifa->ifa_next) {
     if(!strcmp("wg0", ifa->ifa_name)) {
       wireguard = 1;
+      break;
     }
   }
 
