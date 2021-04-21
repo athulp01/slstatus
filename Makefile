@@ -29,6 +29,7 @@ COM =\
 	components/volume\
 	components/wifi\
 	components/brightness\
+	components/wireguard\
 
 all: slstatus
 

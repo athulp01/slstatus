@@ -84,3 +84,4 @@ const char *wifi_perc(const char *interface);
 const char *wifi_essid(const char *interface);
 
 const char *brightness(void);
+const char *wireguard(void);
