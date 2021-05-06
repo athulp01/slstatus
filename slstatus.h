@@ -85,3 +85,4 @@ const char *wifi_essid(const char *interface);
 
 const char *brightness(void);
 const char *wireguard(void);
+const char *netstat(const char *interface);

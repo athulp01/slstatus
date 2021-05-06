@@ -30,6 +30,7 @@ COM =\
 	components/wifi\
 	components/brightness\
 	components/wireguard\
+	components/netstat\
 
 all: slstatus
 

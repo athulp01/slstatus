@@ -91,6 +91,7 @@ static const struct arg args[] = {
 	{ipv4, "%s", "wlp3s0"},
 	{netspeed_rx, " | ^c#98c379^ ^d^"BG" %s", "wlp3s0"},
 	{netspeed_tx, "^c#e06c75^  ^d^"BG"%s| ", "wlp3s0"},
+	{netstat, "^c#e06c75^  ^d^"BG"%s| ", ""},
   {wireguard, "^c#98c379^廬 ^d^"BG"%s | ", ""},
 	{wifi_perc, " %s%%", "wlp3s0"},
 	{separator, "%s", closing},
