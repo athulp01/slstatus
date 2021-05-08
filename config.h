@@ -75,7 +75,7 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	{separator, "%s", opening},
-	{ datetime, "^c#d19a66^ ^d^"BG"%s ","%d/%m/%y %H:%M" },
+	{ datetime, "^c#d19a66^ ^d^"BG"%s ","%a %d/%m/%y %H:%M" },
 	{separator, "%s", closing},
 	{separator, "%s", opening},
 	{brightness, "^c#56b6c2^ ^d^"BG"%s%%", " "},
@@ -88,11 +88,11 @@ static const struct arg args[] = {
 	{separator, "%s", closing},
 	{separator, "%s", opening},
 	{wifi_essid, "^c#e5c07b^  ^d^"BG"%s ", "wlp3s0"},
-	{ipv4, "%s", "wlp3s0"},
-	{netspeed_rx, " | ^c#98c379^ ^d^"BG" %s", "wlp3s0"},
+	{ipv4, "%s |", "wlp3s0"},
+	{netspeed_rx, " ^c#98c379^ ^d^"BG" %s", "wlp3s0"},
 	{netspeed_tx, "^c#e06c75^  ^d^"BG"%s| ", "wlp3s0"},
-	{netstat, "^c#e06c75^  ^d^"BG"%s| ", ""},
-  {wireguard, "^c#98c379^廬 ^d^"BG"%s | ", ""},
-	{wifi_perc, " %s%%", "wlp3s0"},
+	{netstat, "^c#98c379^  ^d^"BG"%s ", ""},
+  {wireguard, "| ^c#98c379^廬 ^d^"BG"%s ", ""},
+	{wifi_perc, "|  %s%%", "wlp3s0"},
 	{separator, "%s", closing},
 };

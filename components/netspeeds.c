@@ -1,6 +1,8 @@
 /* See LICENSE file for copyright and license details. */
+#include <linux/limits.h>
 #include <stdio.h>
 #include <limits.h>
+#include <string.h>
 
 #include "../util.h"
 
@@ -16,6 +18,18 @@
 		char path[PATH_MAX];
 
 		oldrxbytes = rxbytes;
+
+		char operstate[PATH_MAX];
+		if (esnprintf(operstate, sizeof(path),
+		              "/sys/class/net/%s/operstate",
+		              interface) < 0) {
+			return NULL;
+		}
+
+		char state[15];
+		if(pscanf(operstate, "%s", &state) != 1 || strcmp(state, "up")) {
+      return NULL;
+		}
 
 		if (esnprintf(path, sizeof(path),
 		              "/sys/class/net/%s/statistics/rx_bytes",
@@ -42,6 +56,18 @@
 		char path[PATH_MAX];
 
 		oldtxbytes = txbytes;
+
+		char operstate[PATH_MAX];
+		if (esnprintf(operstate, sizeof(path),
+		              "/sys/class/net/%s/operstate",
+		              interface) < 0) {
+			return NULL;
+		}
+
+		char state[15];
+		if(pscanf(operstate, "%s", &state) != 1 || strcmp(state, "up")) {
+      return NULL;
+		}
 
 		if (esnprintf(path, sizeof(path),
 		              "/sys/class/net/%s/statistics/tx_bytes",

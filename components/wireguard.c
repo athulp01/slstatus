@@ -25,5 +25,5 @@ const char* wireguard(){
   if(wireguard) {
     return bprintf("%s", "Active");
   }
-    return bprintf("%s", "Not Active");
+    return NULL;
 }
